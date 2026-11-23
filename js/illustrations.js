@@ -5,7 +5,7 @@
   const VARIANTS = [
     { name: 'Dia', tint: null },
     { name: 'Entardecer', tint: ['#F79D65', '#FDE2C8'], overlay: 'rgba(247,120,80,0.10)' },
-    { name: 'Noite', tint: ['#1E1B4B', '#4C4699'], overlay: 'rgba(20,18,60,0.35)', night: true }
+    { name: 'Noite', tint: ['#001E2E', '#003048'], overlay: 'rgba(0,30,46,0.35)', night: true }
   ];
 
   function mountains(color, peak, h = 1) {
@@ -97,7 +97,7 @@
           ${[[10, 120, 34], [48, 90, 28], [80, 140, 40], [124, 60, 26], [154, 110, 36], [194, 80, 30], [228, 130, 44], [276, 70, 32], [312, 115, 38], [354, 95, 40]].map(([x, y, w]) =>
             `<rect x="${x}" y="${y}" width="${w}" height="${260 - y}" fill="${land}"/>${Array.from({ length: Math.floor((200 - y) / 16) }, (_, r) => `<rect x="${x + 6}" y="${y + 10 + r * 16}" width="${w - 12}" height="4" fill="${night ? s.accent : 'rgba(255,255,255,.18)'}"/>`).join('')}`).join('')}
           <path d="M131 60 L137 30 L143 60Z" fill="${land}"/>
-          <path d="M0 230 L400 230 L400 260 L0 260Z" fill="#2A2D52"/>`;
+          <path d="M0 230 L400 230 L400 260 L0 260Z" fill="#0A3D57"/>`;
       default:
         return mountains(land, s.peak || land);
     }
