@@ -30,9 +30,10 @@
       const topD = ['lisboa', 'fernando-de-noronha', 'kyoto'].map(id => D.DESTINATIONS.find(d => d.id === id));
       return `
         <section class="hero">
-          <div class="hero-glow" aria-hidden="true"></div>
+          ${ART.heroArt()}
+          <div class="hero-inner">
           <span class="eyebrow accent">Transformar intenção em ação</span>
-          <h1 class="hero-title">O que você tem em mente?</h1>
+          <h1 class="hero-title">O que você tem em <span class="hl">mente?</span></h1>
           <p class="hero-sub">Sua intenção, transformada em ação.</p>
           <form class="intent-box" id="intent-form" autocomplete="off">
             <label for="intent-input" class="sr-only">Descreva o que você deseja</label>
@@ -44,6 +45,7 @@
           </form>
           <div class="examples" aria-label="Exemplos de pedidos">
             ${EXAMPLES.map(e => `<button class="example" data-example="${esc(e)}">${esc(e)}</button>`).join('')}
+          </div>
           </div>
         </section>
 

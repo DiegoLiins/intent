@@ -143,6 +143,58 @@
   }
 
   /* Mapa demonstrativo: cidade fictícia, sem relação com mapas reais. */
+
+  /* Arte do topo da página inicial (cores via CSS, adaptam-se ao tema). */
+  function heroArt() {
+    const arches = (x0, y, n, w, gap, h) => Array.from({ length: n }, (_, i) => {
+      const x = x0 + i * (w + gap);
+      return `<path class="hole" d="M${x} ${y + h}V${y + w / 2}a${w / 2} ${w / 2} 0 0 1 ${w} 0V${y + h}z"/>`;
+    }).join('');
+    return `
+      <svg class="hero-art hero-globe" viewBox="0 0 460 460" aria-hidden="true">
+        <circle class="globe-fill" cx="230" cy="230" r="200"/>
+        <circle cx="230" cy="230" r="200"/>
+        ${[0.35, 0.7].map(k => `<path d="M${230 - 200 * k} 230a${200 * k} 200 0 1 0 ${400 * k} 0a${200 * k} 200 0 1 0 ${-400 * k} 0"/>`).join('')}
+        <path d="M230 30v400M30 230h400M58 130h344M58 330h344"/>
+      </svg>
+      <svg class="hero-art hero-plane" viewBox="0 0 360 190" aria-hidden="true">
+        <path class="flight-path" d="M10 180 C 80 150, 120 100, 200 96 S 270 80, 282 70"/>
+        <g class="plane" transform="translate(300 54) rotate(-28) scale(1.5)">
+          <path d="M-26 -3 L10 -3 L20 -14 L27 -14 L21 -3 L30 -3 Q36 0 30 3 L21 3 L27 14 L20 14 L10 3 L-26 3 L-32 9 L-36 9 L-33 0 L-36 -9 L-32 -9 Z"/>
+        </g>
+      </svg>
+      <svg class="hero-art hero-skyline" viewBox="0 0 1440 230" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+        <path class="far" d="M0 170 C 180 120, 360 150, 540 140 S 900 110, 1080 135 S 1320 120, 1440 128 V230 H0Z"/>
+        <g class="near">
+          <!-- Torre Eiffel -->
+          <path d="M300 18 L304 60 L312 110 L326 160 L344 205 H322 Q300 176 278 205 H256 L274 160 L288 110 L296 60 Z"/>
+          <rect x="283" y="108" width="34" height="6" rx="2"/><rect x="270" y="156" width="60" height="7" rx="2"/>
+          <!-- Coliseu -->
+          <path d="M470 205 V128 Q560 104 650 128 V205 Z"/>
+          ${arches(484, 150, 7, 16, 7, 50)}
+          ${arches(486, 132, 7, 12, 11, 12)}
+          <!-- Torii -->
+          <path d="M770 110 Q840 98 910 110 L906 122 Q840 112 774 122 Z"/>
+          <rect x="782" y="134" width="116" height="8" rx="2"/>
+          <rect x="792" y="118" width="11" height="87"/><rect x="877" y="118" width="11" height="87"/>
+          <!-- Big Ben -->
+          <path d="M1036 205 V92 L1048 80 L1060 92 V205 Z" transform="translate(-12 0)"/>
+          <rect x="1018" y="92" width="36" height="113"/>
+          <path d="M1018 92 L1036 50 L1054 92 Z"/><rect x="1034" y="34" width="4" height="18"/>
+          <circle class="hole" cx="1036" cy="112" r="10"/>
+          <!-- Pagode -->
+          <g transform="translate(1210 0)">
+            <rect x="-6" y="40" width="12" height="20"/>
+            <path d="M-44 80 Q0 62 44 80 L36 86 H-36 Z"/><rect x="-24" y="86" width="48" height="22"/>
+            <path d="M-54 116 Q0 96 54 116 L44 122 H-44 Z"/><rect x="-30" y="122" width="60" height="24"/>
+            <path d="M-64 154 Q0 132 64 154 L52 160 H-52 Z"/><rect x="-36" y="160" width="72" height="45"/>
+          </g>
+        </g>
+        <path class="flight-path" d="M120 222 C 420 210, 720 200, 980 170 S 1300 120, 1420 70"/>
+        <path class="ground" d="M0 205 C 240 188, 480 214, 720 202 S 1200 190, 1440 204 V230 H0Z"/>
+      </svg>`;
+  }
+
   function demoMap(pins, { activeId = null, interactive = false } = {}) {
     const roads = `
       <path d="M0 40 C120 60 220 20 400 50" /><path d="M0 120 C140 100 260 150 400 120" />
@@ -170,5 +222,5 @@
       </svg>`;
   }
 
-  window.INTENT_ART = { destinationScene, restaurantTile, demoMap, VARIANTS };
+  window.INTENT_ART = { destinationScene, restaurantTile, demoMap, VARIANTS, heroArt };
 })();
