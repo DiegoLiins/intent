@@ -61,7 +61,9 @@ main.container { flex: 1; outline: none; padding-bottom: 96px; overflow-x: clip;
 .site-header.is-scrolled { border-bottom-color: var(--line); }
 .header-inner { height: var(--header-h); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .brand { display: inline-flex; align-items: center; gap: 10px; }
-.brand-mark { width: 30px; height: 30px; }
+.brand-mark { width: 34px; height: 34px; display: block; }
+.brand-row { display: inline-flex; align-items: center; gap: 10px; }
+.site-footer .brand-mark { width: 28px; height: 28px; }
 .brand-name { font-weight: 750; letter-spacing: .18em; font-size: 15px; color: var(--ink); }
 .main-nav { display: flex; align-items: center; gap: 4px; }
 .main-nav a { position: relative; padding: 8px 14px; border-radius: 999px; font-size: 14.5px; color: var(--ink-2); transition: background .2s, color .2s; display: inline-flex; align-items: center; gap: 6px; }
